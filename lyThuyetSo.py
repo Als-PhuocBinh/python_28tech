@@ -50,9 +50,41 @@ def square(n):
 def gcd(a, b):
     if b == 0: return a
     return gcd(b, a%b)
-        
+#kiểm tra số fibo
+def fibo1(n):
+    f0, f1 = 0, 1
+    if n < 0: return False
+    if n == 0 or n == 1: return True
+    while True:
+        fn = f0 + f1
+        f0, f1 = f1, fn
+        if fn == n: return True
+        if fn > n: return False     
+#in ra n số file đầu tiên
+def fibo2(n):
+    if n == 1: print(0)
+    else:
+        print('0 1', end = ' ')
+        f0, f1 = 0, 1
+        for i in range(2, n):
+            fn = f0 + f1
+            print(fn, end = ' ')
+            f0, f1 = f1, fn
+#in ra số filo thứ n
+def fibo3(n):
+    if n == 0 or n == 1:
+        return n
+    f0, f1 = 0, 1
+    for i in range(2, n+1):
+        fn = f0 + f1
+        f0, f1 = f1, fn
+    return fn
+#kiểm tra số fibo bằng tính chất
+def checkFibo(n):
+    return square(5*n*n + 4) or square(5*n*n - 4)
+
 
 if __name__ == "__main__":
-    #n = int(input("Please enter number: "))
-    print(gcd(10, 15))
+    n = int(input("Please enter number: "))
+    print(checkFibo(n))
     
