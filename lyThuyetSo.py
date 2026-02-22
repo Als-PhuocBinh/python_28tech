@@ -42,10 +42,17 @@ def phanTich(n):
     #n là số nguyên tố     
     if n > 1: #tinh tế vch =))
         print(n)
-        
-    
+#kiểm tra số chính phương
+def square(n):
+    can = math.isqrt(n)
+    return can * can == n   
+#ước chung lớn nhất
+def gcd(a, b):
+    if b == 0: return a
+    return gcd(b, a%b)
         
 
 if __name__ == "__main__":
-    n = int(input("Please enter number: "))
-    phanTich(n)
+    #n = int(input("Please enter number: "))
+    print(gcd(10, 15))
+    
