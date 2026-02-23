@@ -82,9 +82,35 @@ def fibo3(n):
 #kiểm tra số fibo bằng tính chất
 def checkFibo(n):
     return square(5*n*n + 4) or square(5*n*n - 4)
+#số thuận nghịch/ parindrome
+def parindrome(n):
+    tmp = n
+    so = 0
+    while tmp != 0:
+        so = so * 10 + tmp % 10
+        tmp //= 10
+    return so == n
+#số hoàn hảo (tổng các ước nhỏ hơn nó bằng chính nó)
+def perfectNumber(n):
+    res = 1
+    for i in range(2, math.isqrt(n)+1): #-> số rất lớn thì căn của nó của lớn
+        if n % i == 0:
+            res += i
+            if i != n // i:
+                res += n // i
+    return res == n
+#định lý euclid-euler
+#nếu p là số nguyên tố và 2^p - 1 cx nguyên tố => (2^p - 1) * 2^(p-1) là số hoàn hảo
+def perfect(n):
+    for p in range(2, 33):
+        if prime(p) and prime(2**p - 1):
+            res = (2**p - 1) * 2**(p - 1)
+            if res == n: return True
+    return False
+
 
 
 if __name__ == "__main__":
     n = int(input("Please enter number: "))
-    print(checkFibo(n))
+    print(perfectNumber(n))
     
