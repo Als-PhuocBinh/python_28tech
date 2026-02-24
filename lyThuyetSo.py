@@ -107,10 +107,23 @@ def perfect(n):
             res = (2**p - 1) * 2**(p - 1)
             if res == n: return True
     return False
-
-
-
+#lũy thừa nhị phân
+def power(a, n): #trong lúc chạy thì n được chuyển về dạng nhị phân
+    res = 1
+    while n > 0:
+        if n % 2 == 1:
+            res *= a
+        a *= a
+        n //= 2
+    return res
+def binpow(a, b):
+    if b == 0: return 1 
+    X = binpow(a, b//2)
+    if b % 2 == 0:
+        return X * X
+    else:
+        return X * X * a
 if __name__ == "__main__":
     n = int(input("Please enter number: "))
-    print(perfectNumber(n))
+    print(binpow(2, n))
     
