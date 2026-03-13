@@ -9,7 +9,6 @@ def sum_digit(n):
         n //= 10
     return res
 
-
 def cmp(a, b):
     tong1, tong2 = sum_digit(a), sum_digit(b)
     if tong1 == tong2:
